@@ -73,7 +73,9 @@ def _add_title(parent, effect_id: str, text: str,
 
 def generate_fcpxml(results: List[ClipResult], output_path: str,
                     fps_override: Optional[float] = None,
-                    embed_subtitles: bool = False) -> str:
+                    embed_subtitles: bool = False,
+                    event_name: str = 'Auto Cut',
+                    project_name: str = 'Auto Cut') -> str:
     valid = [r for r in results if r.error is None and r.segments]
     if not valid:
         raise ValueError("내보낼 수 있는 클립이 없습니다.")
@@ -129,8 +131,8 @@ def generate_fcpxml(results: List[ClipResult], output_path: str,
             uid=_SUBTITLE_EFFECT_UID)
 
     library = ET.SubElement(root, 'library')
-    event = ET.SubElement(library, 'event', name='Auto Cut')
-    project = ET.SubElement(event, 'project', name='Auto Cut')
+    event = ET.SubElement(library, 'event', name=event_name)
+    project = ET.SubElement(event, 'project', name=project_name)
 
     sequence = ET.SubElement(project, 'sequence',
         format='r1',

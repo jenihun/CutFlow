@@ -2,6 +2,7 @@ import os
 import signal
 import subprocess
 import threading
+from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
@@ -662,6 +663,27 @@ class MainWindow(QMainWindow):
 
         # 내보내기
         root.addWidget(self._bold_label('내보내기'))
+
+        # 이벤트명 / 프로젝트명 (FCPXML 내 Final Cut 이벤트·프로젝트 이름)
+        _name_edit_style = ('color: #111111; background: white; '
+                            'border: 1px solid #d0d0d0; border-radius: 4px; padding: 3px 6px;')
+        name_row = QHBoxLayout()
+        name_row.setSpacing(8)
+        event_lbl = QLabel('이벤트명:')
+        event_lbl.setStyleSheet('border: none; color: #111111;')
+        self.event_name_edit = QLineEdit()
+        self.event_name_edit.setPlaceholderText('이벤트명을 입력하세요')
+        self.event_name_edit.setStyleSheet(_name_edit_style)
+        project_lbl = QLabel('프로젝트명:')
+        project_lbl.setStyleSheet('border: none; color: #111111;')
+        self.project_name_edit = QLineEdit(datetime.now().strftime('%Y.%m.%d'))
+        self.project_name_edit.setStyleSheet(_name_edit_style)
+        name_row.addWidget(event_lbl)
+        name_row.addWidget(self.event_name_edit)
+        name_row.addWidget(project_lbl)
+        name_row.addWidget(self.project_name_edit)
+        root.addLayout(name_row)
+
         btn_row = QHBoxLayout()
         btn_row.setSpacing(10)
         self.export_btn = self._action_btn('FCPXML 내보내기', '#28a745', '#218838')
@@ -1222,6 +1244,13 @@ class MainWindow(QMainWindow):
         if not self.results:
             return
 
+        event_name = self.event_name_edit.text().strip()
+        if not event_name:
+            QMessageBox.warning(self, '이벤트명 필요', '이벤트명을 입력해주세요.')
+            return
+        project_name = self.project_name_edit.text().strip() or \
+            datetime.now().strftime('%Y.%m.%d')
+
         save_path, _ = QFileDialog.getSaveFileName(
             self, 'FCPXML 저장',
             str(Path.home() / 'Desktop' / 'auto_cut.fcpxml'),
@@ -1234,7 +1263,9 @@ class MainWindow(QMainWindow):
             embed = self.embed_subs_check.isChecked()
             generate_fcpxml(self.results, save_path,
                             fps_override=self._get_fps_override(),
-                            embed_subtitles=embed)
+                            embed_subtitles=embed,
+                            event_name=event_name,
+                            project_name=project_name)
             sub_note = ' (자막 삽입)' if embed else ''
             self.status_label.setText(f'✅ FCPXML 저장 완료{sub_note}: {Path(save_path).name}')
 
