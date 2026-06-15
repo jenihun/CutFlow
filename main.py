@@ -6,7 +6,7 @@ from ui.main_window import MainWindow
 
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName("영상 컷 편집 툴")
+    app.setApplicationName("CutFlow")
 
     # 시스템 테마(다크모드 등)에 무관하게 텍스트를 항상 검게 고정
     palette = app.palette()

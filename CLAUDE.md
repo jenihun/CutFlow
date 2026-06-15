@@ -1,4 +1,4 @@
-# CLAUDE.md — Video Controller
+# CLAUDE.md — CutFlow
 
 ## 프로젝트 개요
 
@@ -7,7 +7,7 @@
 ## 실행 방법
 
 ```bash
-cd ~/vedio_controller
+cd ~/CutFlow
 python3 main.py
 ```
 
@@ -20,7 +20,7 @@ pip3 install PyQt6 faster-whisper
 ## 디렉토리 구조
 
 ```
-vedio_controller/
+CutFlow/
 ├── main.py                   # 진입점
 ├── core/
 │   ├── silence_detector.py   # ffmpeg 무음 감지, VideoInfo / Segment / ClipResult 데이터 모델

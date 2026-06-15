@@ -6,7 +6,7 @@ from typing import List, Optional
 
 from .silence_detector import ClipResult
 
-_CONFIG_FILE = Path.home() / '.vedio_controller' / 'config.json'
+_CONFIG_FILE = Path.home() / '.cutflow' / 'config.json'
 
 
 # ── 설정 저장/불러오기 ────────────────────────────────────────────────────────

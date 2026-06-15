@@ -1,6 +1,6 @@
 # 기능 명세서
 
-> 대상 프로그램: Video Controller  
+> 대상 프로그램: CutFlow  
 > 대상 사용자: 액션캠으로 브이로그를 촬영하고 Final Cut Pro로 편집하는 개인 사용자  
 > 최종 수정: 2026-06-15 (v0.8.0)
 
@@ -213,7 +213,7 @@
 - Gemini API 키 발급: https://aistudio.google.com → Get API key (무료)
 
 ### 7-3. API 키 관리
-- 제공자별 API 키 입력 후 `저장` 버튼으로 로컬 저장 (`~/.vedio_controller/config.json`)
+- 제공자별 API 키 입력 후 `저장` 버튼으로 로컬 저장 (`~/.cutflow/config.json`)
 - 앱 재시작 시 자동으로 불러옴
 - 제공자 전환 시 해당 키로 자동 전환
 

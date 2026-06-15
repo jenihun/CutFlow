@@ -1,4 +1,4 @@
-# 🎬 Video Controller
+# 🎬 CutFlow
 
 맥북용 **브이로그 컷 편집 보조 툴**. 액션캠으로 촬영한 여러 클립을 드래그 앤 드롭하면, 음성이 없는 구간을 자동으로 잘라내고 **Final Cut Pro에서 바로 열 수 있는 FCPXML**을 만들어 줍니다. Whisper AI로 자막(SRT 또는 FCP title)도 함께 생성합니다.
 
@@ -47,7 +47,7 @@ pip3 install -r requirements.txt
 ## ▶️ 실행
 
 ```bash
-cd ~/vedio_controller
+cd ~/CutFlow
 python3 main.py
 ```
 
@@ -60,7 +60,7 @@ python3 main.py
 ## 🗂 프로젝트 구조
 
 ```
-vedio_controller/
+CutFlow/
 ├── main.py                   # 진입점
 ├── core/
 │   ├── silence_detector.py   # VAD/dB 컷 감지, 데이터 모델, 노이즈 분석
@@ -82,6 +82,6 @@ vedio_controller/
 
 - macOS / Python 3.9+ / PyQt6 기준
 - FCP title 자막 기능은 **Namsieon YT 모션 템플릿**이 Final Cut Pro에 설치되어 있어야 합니다.
-- AI 추천은 해당 제공자의 API 키가 필요합니다 (`~/.vedio_controller/config.json`에 로컬 저장).
+- AI 추천은 해당 제공자의 API 키가 필요합니다 (`~/.cutflow/config.json`에 로컬 저장).
 
 자세한 기능은 [docs/FEATURES.md](docs/FEATURES.md), 버전 이력은 [docs/CHANGELOG.md](docs/CHANGELOG.md)를 참고하세요.

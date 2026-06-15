@@ -306,7 +306,7 @@ class MainWindow(QMainWindow):
         self._init_ui()
 
     def _init_ui(self):
-        self.setWindowTitle('영상 컷 편집 툴')
+        self.setWindowTitle('CutFlow')
         self.setMinimumSize(640, 720)
         self._work_results: List[ClipResult] = []
 
