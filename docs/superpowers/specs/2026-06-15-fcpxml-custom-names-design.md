@@ -96,6 +96,23 @@ generate_fcpxml(self.results, save_path,
   → FCPXML <event name=…> / <project name=…>
 ```
 
+### 4. 문서 갱신 (프로젝트 컨벤션)
+
+이 프로젝트는 기능 변경 시 FEATURES.md / CHANGELOG.md를 함께 갱신한다.
+
+- **`docs/FEATURES.md` 5-1 (FCPXML)**: 이벤트명/프로젝트명을 사용자가 직접
+  지정할 수 있다는 항목 추가. 프로젝트명 기본값(오늘 날짜 `YYYY.MM.DD`),
+  이벤트명 필수 입력을 명시.
+- **`docs/CHANGELOG.md`**: 하위 호환 새 기능이므로 SemVer **MINOR** 항목
+  (`[0.9.0]`)의 "추가"에 기록. (버전 번호 확정은 릴리스 시점에 사용자와 합의)
+
+## 파일명과의 관계 (중요)
+
+FCPXML **디스크 파일명**(`auto_cut.fcpxml`)과 SRT 파일명 규칙(FEATURES 5-2,
+"FCPXML과 동일 이름")은 **이번 변경의 대상이 아니다**. 이번 작업은 FCPXML
+**내부의** `<event>`/`<project>` name 속성만 바꾼다. 저장 다이얼로그 기본
+파일명은 그대로 두므로 기존 SRT 동시 출력 동작과 충돌하지 않는다.
+
 ## 테스트
 
 - `generate_fcpxml`에 `event_name`/`project_name`을 넘겼을 때, 생성된
