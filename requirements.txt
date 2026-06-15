@@ -1,0 +1,13 @@
+# GUI
+PyQt6>=6.4.0
+
+# Whisper 자막 (Apple Silicon GPU 가속, 자동 폴백)
+mlx-whisper        # M-시리즈 Mac 권장
+faster-whisper     # 폴백 + Silero VAD (음성 감지 컷)
+
+# AI 제목/썸네일 추천 (선택 — 사용하는 제공자만 설치하면 됨)
+google-genai       # Gemini
+anthropic          # Claude
+openai             # ChatGPT
+
+# 시스템 의존성 (Homebrew): brew install ffmpeg

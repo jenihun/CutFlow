@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# Claude Code / 도구 생성물
+.claude/
+.understand-anything/
+
+# 임시/출력물
+*.fcpxml
+*.srt
+*.wav
+/tmp/
