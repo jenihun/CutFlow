@@ -23,6 +23,7 @@ from core.ai_advisor import (
     get_recommendations, save_api_key, load_api_key, AIRecommendation
 )
 from ui.timeline_widget import TimelineWidget
+from ui.help_dialog import HelpDialog
 
 VIDEO_EXTENSIONS = {'.mp4', '.mov', '.m4v', '.mts', '.m2ts', '.mkv', '.avi', '.insv'}
 
@@ -361,7 +362,20 @@ class MainWindow(QMainWindow):
                 arrow.setStyleSheet('color:#bbb; border:none;')
                 h.addWidget(arrow)
         h.addStretch()
+
+        help_btn = QPushButton('❓')
+        help_btn.setToolTip('사용법 보기')
+        help_btn.setFixedSize(28, 28)
+        help_btn.setStyleSheet(
+            'QPushButton { background:#e8e8e8; color:#333; border:none; '
+            'border-radius:14px; font-size:13px; }'
+            'QPushButton:hover { background:#d8d8d8; }')
+        help_btn.clicked.connect(self._show_help)
+        h.addWidget(help_btn)
         return bar
+
+    def _show_help(self):
+        HelpDialog(self).exec()
 
     # ── 1. 설정 화면 ───────────────────────────────────────────────────
 
