@@ -97,3 +97,9 @@ CutFlow/
 - AI 추천은 해당 제공자의 API 키가 필요합니다 (`~/.cutflow/config.json`에 로컬 저장).
 
 자세한 기능은 [docs/FEATURES.md](docs/FEATURES.md), 버전 이력은 [docs/CHANGELOG.md](docs/CHANGELOG.md)를 참고하세요.
+
+---
+
+## 📄 라이선스
+
+[MIT License](LICENSE)
